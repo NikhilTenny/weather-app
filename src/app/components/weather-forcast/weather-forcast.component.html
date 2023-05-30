@@ -1,0 +1,41 @@
+<p>Welcome</p>
+
+<div class="container">
+    <div class="row">
+      <div class="col-10">
+        <div class="d-flex justify-content-start">
+          <div class="mt-5">
+            <div class="">
+              <p-dropdown [options]="condition_list" [(ngModel)]="selected_condition" (onChange)="filteredWeather()" class="custom-dropdown"></p-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-10">
+        <div class="d-flex justify-content-center">
+          <p-table [value]="filtered_forecast" [tableStyle]="{ 'min-width': '50rem' }" class="table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Condition</th>
+                <th>Date and Time</th>
+                <th>Temperature</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+              <tr>
+                <td>{{ product.condition }}</td>
+                <td>{{ product.datetime }}</td>
+                <td>{{ product.temperature }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
